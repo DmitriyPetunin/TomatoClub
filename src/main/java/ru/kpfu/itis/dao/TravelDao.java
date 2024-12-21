@@ -158,8 +158,12 @@ public class TravelDao {
         }
     }
     public void delete(Integer travelId){
+        String sql1 = "DELETE FROM travel_location WHERE id=?";
         String sql = "DELETE FROM travels WHERE id=?";
         try(Connection connection = ConnectionProvider.getInstance().getCon()){
+            PreparedStatement ps1 = connection.prepareStatement(sql1);
+            ps1.setInt(1,travelId);
+            ps1.executeUpdate();
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1,travelId);
             ps.executeUpdate();
