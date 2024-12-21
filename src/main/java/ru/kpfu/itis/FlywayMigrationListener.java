@@ -20,10 +20,10 @@ public class FlywayMigrationListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce) {
         try {
             String url = "jdbc:postgresql://%s:%s/%s".formatted(PROD_DB_HOST,PROD_DB_PORT,PROD_DB_NAME);
-            String user = USERNAME_KEY;
+            String username = USERNAME_KEY;
             String password  = PASSWORD_KEY;
             Flyway flyway = Flyway.configure()
-                    .dataSource(url,user,password)
+                    .dataSource(url,username,password)
                     .load();
             flyway.migrate();
         } catch (Exception e){

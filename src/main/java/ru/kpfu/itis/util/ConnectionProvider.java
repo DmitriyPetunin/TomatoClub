@@ -26,7 +26,10 @@ public class ConnectionProvider {
         String PROD_DB_USERNAME = System.getenv(  "PROD_DB_USERNAME");
         try {
             Class.forName("org.postgresql.Driver").newInstance();
-            con = DriverManager.getConnection("jdbc:postgresql://%s:%s/%s".formatted(PROD_DB_HOST,PROD_DB_PORT,PROD_DB_NAME),PROD_DB_USERNAME,PROD_DB_PASSWORD);
+            con = DriverManager.getConnection("jdbc:postgresql://%s:%s/%s".formatted(PROD_DB_HOST,PROD_DB_PORT,PROD_DB_NAME),
+                    PROD_DB_USERNAME,
+                    PROD_DB_PASSWORD
+            );
 
         } catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {
             throw new RuntimeException(e);
