@@ -28,6 +28,6 @@ CREATE TABLE travel_location (
     travel_id int,
     location_id int,
     PRIMARY KEY (travel_id, location_id),
-    FOREIGN KEY (travel_id) REFERENCES travels(id),
-    FOREIGN KEY (location_id) REFERENCES locations(id)
+    FOREIGN KEY (travel_id) REFERENCES travels(id) ON DELETE CASCADE ,
+    FOREIGN KEY (location_id) REFERENCES locations(id) ON DELETE CASCADE
 );
