@@ -13,8 +13,8 @@ public class FlywayMigrationListener implements ServletContextListener {
     private static final String PROD_DB_HOST = System.getenv(  "PROD_DB_HOST");
     private static final String PROD_DB_PORT = System. getenv(  "PROD_DB_PORT");
     private static final String PROD_DB_NAME = System. getenv(  "PROD_DB_NAME");
-    private static final String USERNAME_KEY = "PROD_DB_USERNAME";
-    private static final String PASSWORD_KEY = "PROD_DB_PASSWORD";
+    private static final String USERNAME_KEY = System. getenv("PROD_DB_USERNAME");
+    private static final String PASSWORD_KEY = System. getenv("PROD_DB_PASSWORD");
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
